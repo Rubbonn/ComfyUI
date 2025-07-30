@@ -5,11 +5,11 @@ if [ "$#" -eq 3 ] && { [ "$3" = "--help" ] || [ "$3" = "-h" ]; }; then
 	exit 0
 fi
 
-if [ -f 'bin/activate' ]; then
-	. bin/activate
+if [ -f '.venv/bin/activate' ]; then
+	. .venv/bin/activate
 else
-	python3 -m venv . \
-	&& . bin/activate \
+	python3 -m venv .venv \
+	&& . .venv/bin/activate \
 	&& pip install --upgrade pip \
 	&& pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128 \
 	&& pip install -r requirements.txt
